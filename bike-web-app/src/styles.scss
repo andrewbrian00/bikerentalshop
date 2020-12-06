@@ -1,0 +1,140 @@
+/* You can add global styles to this file, and also import other style files */
+
+.cdk-global-overlay-wrapper, .cdk-overlay-container {
+    /* z-index: 1000 !important; */
+}
+
+.mat-form-field {
+    width: 100% !important;
+    font-family: 'PT Sans';
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+    height: 50px;
+}
+
+.row.gutter-10 {
+    margin-left: -5px;
+    margin-right: -5px;
+}
+
+.row.gutter-10 [class*="col-"] {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.row.gutter-0 {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.row.gutter-0 [class*="col-"] {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.row.gutter-20 {
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+.row.gutter-20 [class*="col-"] {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+table.dataTable thead .sorting {
+    background: none;
+}
+
+table.dataTable thead .sorting_asc {
+    background: none;
+}
+
+table.dataTable thead .sorting_desc {
+    background: none;
+}
+
+table.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTable thead .sorting_desc {
+    background: none;
+}
+
+table.dataTable thead {
+    background: linear-gradient(30deg, #455a64, #37474f);
+    color: white;
+    line-height: 1.5;
+    font-size: 14px !important;
+    font-weight: 300 !important;
+}
+
+table.dataTable thead th {
+    font-weight: 300;
+}
+
+.table>thead>tr>th {
+    font-size: 14px;
+}
+
+select {
+    -webkit-appearance: menulist;
+}
+
+.mat-form-field-type-mat-select .mat-select-value {
+    position: relative !important;
+    bottom: 3.5px !important;
+}
+
+.montserrat-font {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.icon-text {
+    font-size: 26px;
+    position: relative;
+    top: 5px;
+    margin-right: 10px;
+}
+
+.icon-button {
+    font-size: 22px !important;
+    position: relative;
+    top: -2px !important;
+    margin-right: 8px !important;
+}
+
+.text-white {
+    color: white;
+}
+
+.dataTables_length {
+    margin-bottom: 10px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    background: linear-gradient(30deg, #d32f2f, #d32f2f);
+    border: none;
+    color: white !important;
+}
+
+.italic-text {
+    font-style: italic;
+}
+
+.mat-button, .mat-fab, .mat-flat-button, .mat-icon-button, .mat-mini-fab, .mat-raised-button, .mat-stroked-button {
+    font-family: 'PT Sans';
+}
+
+.loading {
+    color: white;
+    padding-top: 50px;
+}
+
+.green-text {
+    color: green;
+}
+
+.red-text {
+    color: red;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

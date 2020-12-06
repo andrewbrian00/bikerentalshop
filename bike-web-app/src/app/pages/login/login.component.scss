@@ -1,0 +1,10 @@
+.login-page .card-login .card-body {
+    padding: none !important;
+}
+
+.mat-form-field-appearance-legacy {
+    .mat-form-field-prefix,
+    .mat-form-field-suffix {
+        align-self: flex-end;
+    }
+}

@@ -1,0 +1,8 @@
+.login-page .card-login .card-body {
+    padding: none !important;
+}
+
+.page-not-found-title {
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}

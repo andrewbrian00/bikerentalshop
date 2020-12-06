@@ -1,0 +1,16 @@
+<!-- <div *ngIf="info.token;"> -->
+<div class="wrapper">
+    <div class="sidebar" data-color="purple" data-background-color="red" data-image="assets/img/PCheadOFFICEbw.jpg">
+        <app-sidebar-cmp></app-sidebar-cmp>
+        <div class="sidebar-background" style="background-image: url(assets/img/PC_HO.jpg)"></div>
+    </div>
+    <div class="main-panel">
+        <app-navbar-cmp></app-navbar-cmp>
+        <router-outlet></router-outlet>
+        <div *ngIf="!isMap()">
+            <app-footer-cmp></app-footer-cmp>
+        </div>
+    </div>
+    <!-- <app-fixedplugin></app-fixedplugin> -->
+</div>
+<!-- </div> -->

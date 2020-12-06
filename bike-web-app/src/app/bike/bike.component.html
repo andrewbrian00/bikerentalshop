@@ -1,0 +1,110 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div  class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-icon card-header-primary">
+            <div class="card-icon">
+              <i class="material-icons">group</i>
+            </div>
+            <h4 class="card-title" style="font-weight: 700; font-size: 24px;">{{title}} 
+              <i class="material-icons"  style="font-size: 18px;" matTooltipPosition="right"></i>
+               
+            </h4>
+          </div>  <!-- end card-header -->
+         
+          <div class="card-body">
+            <div class="toolbar mr-2 mt-3 mb-3">
+              <form [formGroup]="searchForm">
+                <div class="row">
+                  <!-- Customer name -->
+                  <div class="col-md-3">
+                    <mat-form-field class="example-full-width">
+                      <mat-label>Customer Name</mat-label>
+                      <input matInput type="text" name="customerName" id="text" placeholder="Customer Name"
+                        oninput="this.value = this.value.toUpperCase()" formControlName="customerName"
+                        pattern="[a-zA-ZñÑ0-9 \,.-]*" minlength="2">
+                      <mat-error *ngIf="searchForm.get('customerName').errors?.pattern">
+                        Invalid Format
+                      </mat-error>
+                      <mat-error *ngIf="searchForm.get('customerName').errors?.minlength">
+                        Minimum of 2 characters
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                  <!-- Check-out Time -->
+                  <!-- <div class="col-md-4">
+                    <mat-form-field class="example-full-width">
+                      <mat-label>Check-out Time</mat-label>
+                      <input matInput id="checkOutTime" name="checkOutTime" [matDatepicker]="picker" placeholder="Check-out Time"
+                        (click)="picker.open()" formControlName="checkOutTime" readonly [max]="maxDate">
+                      <button type="button" mat-icon-button matSuffix (click)="clearDate()"
+                        style="position: absolute; right: 25px; color: #767474;">
+                        <mat-icon>cancel</mat-icon>
+                      </button>
+                      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                      <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                  </div> -->
+                  <!-- Check-in Time -->
+                  <!-- <div class="col-md-4">
+                    <mat-form-field class="example-full-width">
+                      <mat-label>Check-in Time</mat-label>
+                      <input matInput id="checkInTime" name="checkInTime" [matDatepicker]="picker" placeholder="Check-in Time"
+                        (click)="picker.open()" formControlName="checkInTime" readonly [max]="maxDate">
+                      <button type="button" mat-icon-button matSuffix (click)="clearDate()"
+                        style="position: absolute; right: 25px; color: #767474;">
+                        <mat-icon>cancel</mat-icon>
+                      </button>
+                      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                      <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                  </div> -->
+                  
+                </div>
+                <!-- <div class="row">
+                  <div class="col-md-4">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>7-digit/8-digit No. </mat-label>
+                      <input type="text" matInput formControlName="contactNo" appBlockCopyPaste numeric
+                        numericType="number" [minlength]="minLength" [maxlength]="maxLength">
+                      <mat-error *ngIf="searchForm['controls'].contactNo.errors?.minlength7">
+                        Please input 7 digits
+                      </mat-error>
+                      <mat-error *ngIf="searchForm['controls'].contactNo.errors?.minlength8">
+                        Please input 8 digits
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div> -->
+                <!-- <div class="row">
+                  <div class="col-md-12 text-right">
+                    <button type="submit" mat-raised-button class="btn btn-primary btn-round"
+                      (click)="search()">Search</button>
+                  </div>
+                </div> -->
+              </form>  <!-- end form -->
+            </div>
+            <!-- <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
+              class="row-border hover text-center table-striped">
+              <thead>
+                <tr>
+                  <th class="text-center">{{ dataTable.headerRow[0] }}</th>
+                  <th class="text-center">{{ dataTable.headerRow[1] }}</th>
+                  <th class="text-center">{{ dataTable.headerRow[2] }}</th>
+                  <th class="text-center">{{ dataTable.headerRow[3] }}</th>
+                  <th class="text-center">{{ dataTable.headerRow[4] }}</th>
+                  <th class="text-center">{{ dataTable.headerRow[5] }}</th>
+                  <th class="text-center">{{ dataTable.headerRow[6] }}</th>
+                  <th class="text-center">{{ dataTable.headerRow[7] }}</th>
+                  <th class="disabled-sorting text-center">{{ dataTable.headerRow[8] }}</th>
+                </tr>
+              </thead>
+            </table> -->
+
+          </div> <!-- end card-body-->
+        </div> <!--  end card  -->
+      </div> <!-- end col-md-12 -->  
+    </div> <!-- end row -->
+  </div> <!-- end container-fluid -->
+</div> <!-- end maint-content -->
