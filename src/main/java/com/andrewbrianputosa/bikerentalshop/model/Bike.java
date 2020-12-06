@@ -7,12 +7,13 @@ import com.couchbase.client.deps.com.fasterxml.jackson.annotation.JsonIgnoreProp
 @JsonIgnoreProperties
 public class Bike {
 	
-	private String bikeId;
+	private String id;
 	private String customerName;
 	private DateTime checkOutTime;
 	private DateTime checkInTime;
 	private Integer totalTimeSpent;
-	
+	private String contactNo;
+	private String javaClass;
 	
 	
 	
@@ -20,22 +21,28 @@ public class Bike {
 		
 	}
 
-	public Bike(String bikeId, String customerName, DateTime checkOutTime, DateTime checkInTime,
-			Integer totalTimeSpent) {
+	public Bike(String id, String customerName, DateTime checkOutTime, DateTime checkInTime, Integer totalTimeSpent,
+			String contactNo, String javaClass) {
 		super();
-		this.bikeId = bikeId;
+		this.id = id;
 		this.customerName = customerName;
 		this.checkOutTime = checkOutTime;
 		this.checkInTime = checkInTime;
 		this.totalTimeSpent = totalTimeSpent;
+		this.contactNo = contactNo;
+		this.javaClass = javaClass;
 	}
-	
-	public String getBikeId() {
-		return bikeId;
+
+	public String getId() {
+		return id;
 	}
-	public void setBikeId(String bikeId) {
-		this.bikeId = bikeId;
+
+
+	public void setId(String id) {
+		this.id = id;
 	}
+
+
 	public String getCustomerName() {
 		return customerName;
 	}
@@ -59,6 +66,29 @@ public class Bike {
 	}
 	public void setTotalTimeSpent(Integer totalTimeSpent) {
 		this.totalTimeSpent = totalTimeSpent;
+	}
+	
+	public String getContactNo() {
+		return contactNo;
+	}
+
+	public void setContactNo(String contactNo) {
+		this.contactNo = contactNo;
+	}
+
+	public void setJavaClass(String javaClass) {
+		this.javaClass = javaClass;
+	}
+	
+	public String getJavaClass() {
+		return javaClass;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Bike [id=" + id + ", customerName=" + customerName + ", checkOutTime=" + checkOutTime + ", checkInTime="
+				+ checkInTime + ", totalTimeSpent=" + totalTimeSpent + ", javaClass=" + javaClass + "]";
 	}
 	
 	

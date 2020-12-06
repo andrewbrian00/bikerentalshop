@@ -2,10 +2,10 @@ package com.andrewbrianputosa.bikerentalshop.util;
 
 public enum CouchbaseConstant {
 
-	 ALL("*"),
-	 META_ID("meta().id"),
+	  ALL("*"),
+	  META_ID("meta().id"),
 	  JAVA_CLASS("javaClass"),
-	  BIKE_ID("bikeId");
+	  BIKE_ID("id");
 	  
 	  private String constant;
 

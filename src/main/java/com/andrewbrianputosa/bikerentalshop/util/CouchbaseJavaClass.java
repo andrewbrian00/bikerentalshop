@@ -1,4 +1,4 @@
-package com.andrewbrianputosa.bikerentalshop.model;
+package com.andrewbrianputosa.bikerentalshop.util;
 
 
 public enum CouchbaseJavaClass {

@@ -1,20 +1,15 @@
-package com.andrewbrianputosa.bikerentalshop.model;
-
+package com.andrewbrianputosa.bikerentalshop.util;
 
 import java.io.IOException;
 import java.util.*;
 import org.apache.commons.beanutils.PropertyUtils;
 import org.joda.time.DateTime;
 import org.slf4j.*;
-
-import com.andrewbrianputosa.bikerentalshop.util.CouchbaseQueryUtil;
-import com.couchbase.client.deps.com.fasterxml.jackson.databind.ser.std.DateSerializer;
 import com.couchbase.client.java.Bucket;
 import com.couchbase.client.java.document.JsonDocument;
 import com.couchbase.client.java.document.json.JsonObject;
 import com.couchbase.client.java.query.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.datatype.joda.ser.DateTimeSerializer;
 import com.google.gson.*;
 
 /**
@@ -225,6 +220,7 @@ public class CBQuery {
 				return true;
 			} catch (Exception e) {
 				LOGGER.info("Retrying...... : Attempt - " + tries);
+				LOGGER.warn("Upsert failed | {}", e.getMessage());
 				sleep();
 				if (tries >= MAX_TRIES) {
 					LOGGER.warn("Upsert failed | {}", e.getMessage());

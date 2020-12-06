@@ -14,11 +14,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.andrewbrianputosa.bikerentalshop.model.Bike;
-import com.andrewbrianputosa.bikerentalshop.model.CBQuery;
-import com.andrewbrianputosa.bikerentalshop.model.CouchbaseJavaClass;
+import com.andrewbrianputosa.bikerentalshop.model.Result;
+import com.andrewbrianputosa.bikerentalshop.util.CBQuery;
 import com.andrewbrianputosa.bikerentalshop.util.CouchbaseConstant;
+import com.andrewbrianputosa.bikerentalshop.util.CouchbaseJavaClass;
 import com.andrewbrianputosa.bikerentalshop.util.CouchbaseQueryUtil;
 import com.couchbase.client.java.Bucket;
+import com.couchbase.client.java.query.Delete;
 import com.couchbase.client.java.query.Statement;
 
 @Repository
@@ -35,7 +37,7 @@ public class BikerentalshopRepositoryImpl implements BikerentalshopRepository{
 	}
 	
 	@Override
-	public List<Bike> findBike() {
+	public List<Bike> findAllBikes() {
 		List<Bike> resultList = new ArrayList<>();
 		
 		try {
@@ -44,14 +46,68 @@ public class BikerentalshopRepositoryImpl implements BikerentalshopRepository{
 					.from(i(bucketName))
 					.where(x(CouchbaseConstant.JAVA_CLASS.value())
 							.eq(s(CouchbaseJavaClass.BIKE.getJavaClass())));
-			LOGGER.info("BIKE findAllBike: " + query);
+			LOGGER.info("BIKE findAllBike: {query} " ,query);
 			resultList = cbQuery.extractResult(query, Bike.class, true);
-			return resultList;
+			
 		} catch (Exception e) {
 			LOGGER.error(e.getMessage(), e);
 			throw e;
-		} finally {
+		}
+		
+		return resultList;
+	}
 
+	@Override
+	public void save(Bike bike) {
+		try {
+			CBQuery cbQuery = new CBQuery(bucket);
+			cbQuery.upsert(bike);
+			LOGGER.info("Bike Details saved.");
+		} catch (Exception e) {
+			LOGGER.error(e.getMessage(), e);
+			throw e;
+		}
+	}
+
+	@Override
+	public Bike findBikeById(String id) {
+		CBQuery cbQuery = new CBQuery(bucket);
+		try {
+			Statement query = select(CouchbaseQueryUtil.selectAll(bucketName, Bike.class))
+					.from(i(bucketName))
+							.where(x(CouchbaseConstant.BIKE_ID.value()).eq(s(id))
+									.and(x(CouchbaseConstant.JAVA_CLASS.value()))
+									.eq(s(CouchbaseJavaClass.BIKE.getJavaClass())));
+
+			return cbQuery.extractResult(query, Bike.class, true).stream().findFirst().orElse(null);
+		} catch (Exception e) {
+			LOGGER.error(e.getMessage(), e);
+			throw e;
+		}
+	}
+
+	@Override
+	public void updateBike(Bike bike) {
+		try {
+			CBQuery cbQuery = new CBQuery(bucket);
+			cbQuery.upsert(bike);
+			LOGGER.info("Bike Details successfully updated.");
+		} catch (Exception e) {
+			LOGGER.error(e.getMessage(), e);
+			throw e;
+		}
+	}
+
+	@Override
+	public void deleteById(String documentId) {
+		try {
+			CBQuery cbQuery = new CBQuery(bucket);
+			Statement query = Delete.deleteFrom(bucketName).useKeys(s(documentId));
+			cbQuery.delete(query);
+			LOGGER.info("Document has been deleted: {documentId}" , documentId);
+		} catch (Exception e) { 
+			LOGGER.error(e.getMessage(), e);
+			throw e;
 		}
 	}
 	
